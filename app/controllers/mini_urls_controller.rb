@@ -10,6 +10,7 @@ class MiniUrlsController < ApplicationController
   # GET /mini_urls/1
   # GET /mini_urls/1.json
   def show
+    @ips = Ip.where(:mini_url_id => @mini_url.id).select(:ip, :num_visits)
   end
 
   # GET /mini_urls/new

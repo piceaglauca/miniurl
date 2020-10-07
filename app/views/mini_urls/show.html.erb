@@ -10,5 +10,33 @@
   <%= @mini_url.full_url %>
 </p>
 
+<p>
+  <strong>Total Visits:</strong>
+  <%= @mini_url.num_visits %>
+</p>
+
+<p>
+  <strong>Visitor History:</strong>
+  <table>
+    <thead>
+      <tr>
+        <th>IP Address</th>
+        <th>Visits</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if ! @ips.nil? %>
+      <% @ips.each do |ip| %>
+        <tr>
+          <td><%= ip.ip %></td>
+          <td><%= ip.num_visits %></td>
+        </tr>
+      <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</p>
+
+
 <%= link_to 'Edit', edit_mini_url_path(@mini_url) %> |
 <%= link_to 'Back', mini_urls_path %>
