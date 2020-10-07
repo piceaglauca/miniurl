@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Mini Urls</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Short url</th>
+      <th>Full url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mini_urls.each do |mini_url| %>
+      <tr>
+        <td><%= mini_url.short_url %></td>
+        <td><%= mini_url.full_url %></td>
+        <td><%= link_to 'Show', mini_url %></td>
+        <td><%= link_to 'Edit', edit_mini_url_path(mini_url) %></td>
+        <td><%= link_to 'Destroy', mini_url, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Mini Url', new_mini_url_path %>

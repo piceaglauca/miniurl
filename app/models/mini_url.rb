@@ -1,0 +1,2 @@
+class MiniUrl < ApplicationRecord
+end
