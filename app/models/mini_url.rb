@@ -3,6 +3,7 @@ URL_LENGTH = 5
 class MiniUrl < ApplicationRecord
   has_many :ip
   before_create :generate_mini_url
+  validates :full_url, :url => true
 
   def num_visits
     Ip.where(:mini_url_id => self.id).sum(:num_visits)
